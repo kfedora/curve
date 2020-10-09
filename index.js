@@ -53,10 +53,21 @@ const run = async () => {
 
     for (let i = 0; i < addresses.length; i++) {
         console.log(addresses[i]);
+        const name = addresses[i].lastIndexOf('/');
         await page.goto(addresses[i], { "waitUntil": "networkidle2" })
         await page.screenshot({
-            path: `curvedental-${i}.png`,
+            path: `curvedental-${name}-full.png`,
             fullPage: true
+        });
+    }
+
+    for (let i = 0; i < addresses.length; i++) {
+        console.log(addresses[i]);
+        const name = addresses[i].lastIndexOf('/');
+        await page.goto(addresses[i], { "waitUntil": "networkidle2" })
+        await page.screenshot({
+            path: `curvedental-${name}-fold.png`,
+            fullPage: false
         });
     }
 
