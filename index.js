@@ -13,6 +13,8 @@ const run = async () => {
     });
 
     const addresses = [
+        "https://www.curvedental.com/",
+        "https://www.curvedental.com/sitemap",
         "https://www.curvedental.com/dental-charting-software/",
         "https://www.curvedental.com/dental-scheduling-software/",
         "https://www.curvedental.com/dental-billing-software",
@@ -58,16 +60,6 @@ const run = async () => {
         await page.screenshot({
             path: `curvedental-${name}-full.png`,
             fullPage: true
-        });
-    }
-
-    for (let i = 0; i < addresses.length; i++) {
-        console.log(addresses[i]);
-        const name = addresses[i].lastIndexOf('/');
-        await page.goto(addresses[i], { "waitUntil": "networkidle2" })
-        await page.screenshot({
-            path: `curvedental-${name}-fold.png`,
-            fullPage: false
         });
     }
 
